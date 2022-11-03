@@ -89,7 +89,7 @@
           <div class="row">
             <div class="col p-0" style="margin-right:8px">
                 <p class="p-text pb-0" style="color: #747272">Tipe Driver</p>
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="color: #747272;width:245px;height: 40px;">
+                <select id="driver" class="form-select form-select-sm" aria-label=".form-select-sm example" style="color: #747272;width:245px;height: 40px;">
                     <option selected>Pilih Tipe Driver</option>
                     <option value="1">Dengan Sopir</option>
                     <option value="2">Tanpa Sopir (Lepas Kunci)</option>
@@ -97,29 +97,31 @@
             </div>
             <div class="col p-0" style="margin-right:8px">
                 <p class="p-text" style="color: #747272">Tanggal</p>
-                <input type="date" class="btn btn-outline text-title-dropdown p-text" style="width:245px;height: 40px;color: #747272">
+                <input id="date" type="date" class="btn btn-outline text-title-dropdown p-text" style="width:245px;height: 40px;color: #747272">
             </div>
             
             <div class="col p-0" style="margin-right:8px">
                 <p class="p-text" style="color: #747272">Waktu Jemput/Ambil</p>
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="color: #747272;width:245px;height: 40px;">
+                <input id="time" type="time" class="btn btn-outline text-title-dropdown p-text" style="width:245px;height: 40px;color: #747272">
+                <!-- <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="color: #747272;width:245px;height: 40px;">
                     <option selected>Pilih Waktu</option>
                     <option value="1">Dengan Sopir</option>
                     <option value="2">Tanpa Sopir (Lepas Kunci)</option>
-                </select>
+                </select> -->
             </div>
             <div class="col p-0" style="margin-right:8px">
                 <p class="p-text" style="color: #747272">Jumlah Penumpang (opsional)</p>
-                <input type="number" class="btn p-text btn-outline text-title-dropdown" style="color: #747272;width:245px;height: 40px;;height: 40px;">
+                <input type="number" id="capacity" class="btn p-text btn-outline text-title-dropdown" style="color: #747272;width:245px;height: 40px;;height: 40px;">
             </div>
             <div class="col p-0" style="margin-right:8px">
                 <p class="p-text" style="color: #74727200">Jumlah </p>
-                <button class="button" >Cari Mobil</button>
+                <button class="button" id="load-btn" type="button">Cari Mobil</button>
             </div>
           </div>
         </div>
     </div>
-    
+    <div id="cars-container" class="container d-flex flex-wrap justify-content-center mt-5 mb-5">
+    </div>
     <!-- Footer section  -->
     <footer>
         <div class="container" style="margin-top: 150px;">
@@ -174,6 +176,11 @@
             </div>
         </div>
     </footer>
+    <script type="text/javascript" src="./scripts/filter.js"></script>
+    <!-- <script type="text/javascript" src="./scripts/binar.js"></script>
+    <script type="text/javascript" src="./scripts/app.example.js"></script>
+    <script type="text/javascript" src="./scripts/car.example.js"></script>
+    <script type="text/javascript" src="./scripts/main.example.js"></script> -->
 </body>
 <script src="js/jquery.min.js"></script>
   <script src="js/owl.carousel.js"></script>

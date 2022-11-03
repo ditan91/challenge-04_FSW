@@ -1,3 +1,4 @@
+// const { app, init, load } = require("./app.example");
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -28,7 +29,8 @@ class Binar {
       cars = this.populateCars(cacheCars);
     } else {
       const response = await fetch(
-        "https://raw.githubusercontent.com/fnurhidayat/probable-garbanzo/main/data/cars.min.json"
+        // "https://raw.githubusercontent.com/fnurhidayat/probable-garbanzo/main/data/cars.min.json"
+        "http://localhost:8000/json"
       );
       const body = await response.json();
       cars = this.populateCars(body)
@@ -36,7 +38,21 @@ class Binar {
       localStorage.setItem("CARS", JSON.stringify(cars));
     }
 
-    if (filterer instanceof Function) return cars.filter(filterer);
+    return cars.filter((car) => {
+      if (filterer.capacity && filterer.date && filterer.time && filterer.driver){
+        return car.capacity === filterer.capacity && car.date === filterer.date && car.driver === filterer.driver && car.time === filterer.time;
+      } else if (filterer.capacity){
+        return car.capacity === filterer.capacity;
+      } else if (filterer.date){
+        return car.date === filterer.date;
+      } else if (filterer.time){
+        return car.time === filterer.time;
+      } else if (filterer.driver){
+        return car.driver === filterer.driver;
+      } else {
+        return car
+      }
+    });
 
     return cars;
   }

@@ -13,7 +13,8 @@ class App {
     this.loadButton.onclick = this.run;
   }
 
-  run = () => {
+  run = async() => {
+    await this.load();
     Car.list.forEach((car) => {
       const node = document.createElement("div");
       node.innerHTML = car.render();
@@ -22,6 +23,14 @@ class App {
   };
 
   async load() {
+    let capacity = document.getElementById('capacity')
+    let date = document.getElementById('date')
+    let time = document.getElementById('time')
+    let driver = document.getElementById('driver')
+    
+    console.log(capacity)
+    const filterer = { capacity: capacity.value, date: date.value, time:time.value, driver: driver.value }
+
     const cars = await Binar.listCars();
     Car.init(cars);
   }
@@ -35,3 +44,4 @@ class App {
     }
   };
 }
+
