@@ -17,7 +17,6 @@ function listCar(){
 
     var newHTML = ""
     card = document.getElementById("cars-container")
-    let count = 0
     if(capacity ==='' || date==='' || time==='' || driver === ''){
         alert("Fill all the blank")
     } else if (date < currDate) {
@@ -25,9 +24,7 @@ function listCar(){
     } else {
         for (let i = 0; i < json.length; i++) {
             var car = json[i];
-            // console.log(JSON.stringify(json[i].capacity))
-            // console.log(capacity)
-            if (JSON.stringify(json[i].capacity) === capacity){
+            if (JSON.stringify(json[i].capacity) === capacity && json[i].available === true){
                 newHTML += `
                 <div class="card m-3" style="width: 18rem;height: 35rem;">
                     <img src="${car.image}" class="card-img-top m-1" alt="${car.manufacture}" style="object-fit: scale-down; height: 150px; ">
@@ -44,7 +41,6 @@ function listCar(){
             }
            
         }
-        console.log(count)
         card.innerHTML = newHTML;
         if (card = ""){
             alert("Not Found")
