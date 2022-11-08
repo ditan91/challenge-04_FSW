@@ -14,7 +14,8 @@ function listCar(){
     xmlhttp.send(null);
     const json = JSON.parse(xmlhttp.responseText)
     console.log(json)
-    var data = ""
+
+    var newHTML = ""
     card = document.getElementById("cars-container")
     let count = 0
     if(capacity ==='' || date==='' || time==='' || driver === ''){
@@ -27,7 +28,7 @@ function listCar(){
             // console.log(JSON.stringify(json[i].capacity))
             // console.log(capacity)
             if (JSON.stringify(json[i].capacity) === capacity){
-                data += `
+                newHTML += `
                 <div class="card m-3" style="width: 18rem;height: 35rem;">
                     <img src="${car.image}" class="card-img-top m-1" alt="${car.manufacture}" style="object-fit: scale-down; height: 150px; ">
                     <div class="card-body">
@@ -44,7 +45,7 @@ function listCar(){
            
         }
         console.log(count)
-        card.innerHTML = data;
+        card.innerHTML = newHTML;
         if (card = ""){
             alert("Not Found")
         } 
