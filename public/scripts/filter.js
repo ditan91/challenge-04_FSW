@@ -24,7 +24,7 @@ function listCar(){
     if(capacity ==='' || date==='' || time==='' || driver === ''){
         alert("Fill all the blank")
     } else if (Date.parse(date) < Date.parse(currDate)) {
-        alert("Day not available, choose another day")
+        alert("Please choose a future date")
     } else {
         for (let i = 0; i < json.length; i++) {
             var car = json[i];
@@ -46,9 +46,6 @@ function listCar(){
 
         }
         card.innerHTML = newHTML;
-        if (card = ""){
-            alert("Not Found")
-        } 
     }
     
 }
